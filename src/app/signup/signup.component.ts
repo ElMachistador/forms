@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { ValidatorFn } from '@angular/forms'
 
@@ -25,17 +25,14 @@ export const passwordConfirmationValidator: ValidatorFn = (control:
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss']
 })
-export class SignupComponent implements OnInit {
+export class SignupComponent{
   form = new FormGroup({
     email: new FormControl(null, Validators.required),
     password: new FormControl(null, Validators.required),
     confirm: new FormControl(null, Validators.required)
   }, { validators: passwordConfirmationValidator })
   logins?: Signup[] = []
-  constructor() { }
 
-  ngOnInit(): void {
-  }
 
   signup() {
     if (this.form.valid) {

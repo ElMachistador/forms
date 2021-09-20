@@ -9,7 +9,7 @@
 
   <mat-form-field>
     <mat-label for="age">Age</mat-label>
-    <input matInput formArrayName="age" type="number" id="age" min="1">
+    <input matInput formArrayName="age" type="number" id="age" min="1" max="120">
   </mat-form-field>
 
 
@@ -23,7 +23,19 @@
     </mat-select>
   </mat-form-field>
 
-  <mat-form-field>
+
+  <!-- <mat-form-field> -->
+    <label>Gender</label>
+    <mat-radio-group formControlName="gender">
+      <mat-radio-button value="male"> Male </mat-radio-button>
+      <mat-radio-button value="female"> Female </mat-radio-button>
+      <mat-radio-button value="transgenre"> Transgenre</mat-radio-button>
+      <mat-radio-button value="none"> None </mat-radio-button>
+    </mat-radio-group>
+  <!-- </mat-form-field> -->
+  
+
+  <!-- <mat-form-field>
     <mat-label>Gender</mat-label>
     <mat-select formControlName="gender">
       <mat-option value="male"> Male </mat-option>
@@ -31,7 +43,7 @@
       <mat-option value="transgenre"> Transgenre </mat-option>
       <mat-option value="none"> None </mat-option>
     </mat-select>
-  </mat-form-field>
+  </mat-form-field> -->
 
   <button mat-raised-button color="primary" type="submit">Submit</button>
 

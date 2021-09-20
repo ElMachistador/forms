@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 
@@ -13,16 +13,13 @@ interface Signin {
   styleUrls: ['./login.component.scss']
 })
 
-export class LoginComponent implements OnInit {
+export class LoginComponent{
   form = new FormGroup({
     email: new FormControl(null, Validators.required),
     password: new FormControl(null, Validators.required)
   })
   logins?: Signin[] = []
-  constructor() { }
 
-  ngOnInit(): void {
-  }
 
   login() {
     if (this.form.valid) {
