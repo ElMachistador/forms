@@ -34,7 +34,6 @@ export class UserComponent{
   submit(){
     if (this.form.valid){
       this.infos?.push(this.form.value)
-      console.log(this.infos)
       this.form.reset()
     }
   }

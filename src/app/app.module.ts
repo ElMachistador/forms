@@ -16,6 +16,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
 import { UserComponent } from './user/user.component';
+import { ProductComponent } from './product/product.component';
 
 
 
@@ -25,6 +26,7 @@ import { UserComponent } from './user/user.component';
     LoginComponent,
     SignupComponent,
     UserComponent,
+    ProductComponent,
   ],
   imports: [
     BrowserModule,
