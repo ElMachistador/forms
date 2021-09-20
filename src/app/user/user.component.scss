@@ -1,0 +1,19 @@
+form{
+  display: flex;
+  flex-direction: column;
+  max-width: 240px;
+}
+
+
+.users{
+  margin-top: 32px;
+}
+
+mat-radio-group{
+  display: flex;
+  flex-direction: column;
+  mat-radio-button{
+    padding-top: 8px;
+    margin-bottom: 8px;
+  }
+}

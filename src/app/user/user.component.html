@@ -1,0 +1,40 @@
+<h3>User Information</h3>
+
+<form [formGroup]="form" (ngSubmit)="submit()">
+
+  <mat-form-field>
+    <mat-label for="name">Name</mat-label>
+    <input matInput formControlName="name" type="text" id="name">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label for="age">Age</mat-label>
+    <input matInput formArrayName="age" type="number" id="age" min="1" max="120">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Nationality</mat-label>
+    <mat-select formControlName="nationality">
+      <ng-container *ngFor="let country of countries | keyvalue">
+        <mat-option [value]="country.key"> {{country.value}} </mat-option>
+      </ng-container>
+    </mat-select>
+  </mat-form-field>
+
+
+  <label>Gender</label>
+  <mat-radio-group formControlName="gender">
+    <ng-container *ngFor="let gender of genders | keyvalue">
+      <mat-radio-button [value]="gender.key">{{gender.value}}</mat-radio-button>
+    </ng-container>
+  </mat-radio-group>
+
+  <button mat-raised-button color="primary" type="submit">Submit</button>
+
+</form>
+
+<h3 class="users">Signed up users</h3>
+
+<ng-container *ngFor="let info of infos">
+  <p>{{info.name}}</p>
+</ng-container>
