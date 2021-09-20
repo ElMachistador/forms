@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
+
+import { FormGroup, FormControl } from '@angular/forms';
 
 interface Product {
   name: string;
@@ -14,11 +16,22 @@ interface Product {
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss']
 })
-export class ProductComponent implements OnInit {
+export class ProductComponent{
+form = new FormGroup({
+  name: new FormControl(),
+  description: new FormControl(),
+  price: new FormControl(),
+  types: new FormControl(),
+  stock: new FormControl()
+})
+products: Product[] = []
 
-  constructor() { }
-
-  ngOnInit(): void {
+sell(){
+  if(this.form.valid){
+    this.products.push(this.form.value)
+    this.form.reset()
+    console.log(this.products)
   }
+}
 
 }
