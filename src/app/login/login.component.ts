@@ -28,7 +28,6 @@ export class LoginComponent implements OnInit {
     if (this.form.valid) {
       this.logins?.push(this.form.value)
       this.form.reset()
-      console.log(this.logins)
     }
   }
 

@@ -2,13 +2,23 @@
 
 <main>
   <form [formGroup]="form" (ngSubmit)="signup()">
-    <label for="email">Email address</label>
-    <input type="email" id="email" formControlName="email" required>
-    <label for="password">Password</label>
-    <input type="password" id="password" formControlName="password" required>
-    <label for="confirm">Confirm Password</label>
-    <input type="password" id="confirm" formControlName="confirm" required>
-    <button type="submit">Login</button>
+    <mat-form-field>
+      <mat-label for="email">Email address</mat-label>
+      <input matInput type="email" id="email" formControlName="email" required>
+      <mat-error>Please enter a valid email</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label for="password">Password</mat-label>
+      <input matInput type="password" id="password" formControlName="password" required>
+      <mat-error>Please enter your password</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label for="confirm">Confirm Password</mat-label>
+      <input matInput type="password" id="confirm" formControlName="confirm" required>
+      <mat-error>Please confirm your password</mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Login</button>
+    <p class="error" *ngIf="form.hasError('passwordConfirmation')">Password must be identical</p>
   </form>
 </main>
 
