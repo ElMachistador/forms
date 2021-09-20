@@ -28,8 +28,9 @@ products: Product[] = []
 
 sell(){
   if(this.form.valid){
-    this.form.value.stock = Math.round(this.form.value.stock)
-    this.products.push(this.form.value)
+    const product = this.form.value
+    product.stock = Math.round(product.stock)
+    this.products.push(product)
     this.form.reset()
     console.log(this.products)
   }
