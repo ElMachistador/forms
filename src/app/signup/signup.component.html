@@ -1,0 +1,20 @@
+<h3>Signup</h3>
+
+<main>
+  <form [formGroup]="form">
+    <label for="email">Email address</label>
+    <input type="text" formControlName="email">
+    <label for="password">Password</label>
+    <input type="password" formControlName="password">
+    <label for="confirm">Confirm Password</label>
+    <input type="password" formControlName="confirm">
+    <button (click)="signup($event)">Login</button>
+  </form>
+</main>
+
+<p>Email list</p>
+
+<ng-container *ngFor="let login of logins">
+  <p>{{login.email}}</p>
+</ng-container>
+
