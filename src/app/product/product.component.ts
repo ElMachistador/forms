@@ -28,6 +28,7 @@ products: Product[] = []
 
 sell(){
   if(this.form.valid){
+    this.form.value.stock = Math.round(this.form.value.stock)
     this.products.push(this.form.value)
     this.form.reset()
     console.log(this.products)
