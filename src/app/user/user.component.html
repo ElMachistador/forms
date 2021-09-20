@@ -13,13 +13,22 @@
   </mat-form-field>
 
 
-  <mat-form-field>
+  <!-- <mat-form-field>
     <mat-label>Nationality</mat-label>
     <mat-select formControlName="nationality">
       <mat-option value="france"> France </mat-option>
       <mat-option value="spain"> Spain </mat-option>
       <mat-option value="italy"> Italy </mat-option>
       <mat-option value="greece">Greece</mat-option>
+    </mat-select>
+  </mat-form-field> -->
+
+  <mat-form-field>
+    <mat-label>Nationality</mat-label>
+    <mat-select formControlName="nationality">
+      <ng-container *ngFor="let country of countries | keyvalue">
+        <mat-option [value]="country.key"> {{country.value}} </mat-option>
+      </ng-container>
     </mat-select>
   </mat-form-field>
 

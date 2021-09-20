@@ -1,4 +1,5 @@
 import { Component} from '@angular/core';
+import { countries } from '../countries';
 
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
@@ -17,6 +18,7 @@ interface User {
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent{
+  readonly countries = countries;
   form = new FormGroup({
     name: new FormControl(),
     age: new FormControl(),
