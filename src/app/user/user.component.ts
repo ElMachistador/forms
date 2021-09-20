@@ -1,5 +1,7 @@
 import { Component} from '@angular/core';
+
 import { countries } from '../countries';
+import { genders } from '../genders';
 
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
@@ -19,6 +21,7 @@ interface User {
 })
 export class UserComponent{
   readonly countries = countries;
+  readonly genders = genders;
   form = new FormGroup({
     name: new FormControl(),
     age: new FormControl(),
