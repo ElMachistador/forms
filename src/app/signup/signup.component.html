@@ -14,9 +14,9 @@
     <mat-form-field>
       <mat-label for="confirm">Confirm Password</mat-label>
       <input matInput type="password" id="confirm" formControlName="confirm" required>
-      <mat-error *ngIf="form.hasError('passwordConfirmation')">Password has to be identical</mat-error>
     </mat-form-field>
     <button mat-raised-button color="primary" type="submit">Login</button>
+    <p class="error" *ngIf="form.hasError('passwordConfirmation')">Password must be identical</p>
   </form>
 </main>
 
