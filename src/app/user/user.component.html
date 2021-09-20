@@ -1,0 +1,44 @@
+<h3>User Information</h3>
+
+<form [formGroup]="form" (ngSubmit)="submit()">
+
+  <mat-form-field>
+    <mat-label for="name">Name</mat-label>
+    <input matInput formControlName="name" type="text" id="name">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label for="age">Age</mat-label>
+    <input matInput formArrayName="age" type="number" id="age" min="1">
+  </mat-form-field>
+
+
+  <mat-form-field>
+    <mat-label>Nationality</mat-label>
+    <mat-select formControlName="nationality">
+      <mat-option value="france"> France </mat-option>
+      <mat-option value="spain"> Spain </mat-option>
+      <mat-option value="italy"> Italy </mat-option>
+      <mat-option value="greece">Greece</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Gender</mat-label>
+    <mat-select formControlName="gender">
+      <mat-option value="male"> Male </mat-option>
+      <mat-option value="female"> Female </mat-option>
+      <mat-option value="transgenre"> Transgenre </mat-option>
+      <mat-option value="none"> None </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Submit</button>
+
+</form> 
+
+<h3 class="users">Signed up users</h3>
+
+<ng-container *ngFor="let info of infos">
+  <p>{{info.name}}</p>
+</ng-container>
