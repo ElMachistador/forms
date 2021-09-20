@@ -1,14 +1,14 @@
 <h3>Signup</h3>
 
 <main>
-  <form [formGroup]="form">
+  <form [formGroup]="form" (ngSubmit)="signup()">
     <label for="email">Email address</label>
     <input type="text" formControlName="email">
     <label for="password">Password</label>
     <input type="password" formControlName="password">
     <label for="confirm">Confirm Password</label>
     <input type="password" formControlName="confirm">
-    <button (click)="signup($event)">Login</button>
+    <button (click)="signup()">Login</button>
   </form>
 </main>
 

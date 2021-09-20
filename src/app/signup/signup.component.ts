@@ -25,8 +25,7 @@ logins?: Signup[] = []
   ngOnInit(): void {
   }
 
-  signup(event: Event){
-    event.preventDefault()
+  signup(){
     let password = this.form.value.password
     let confirm = this.form.value.confirm
     if (password !== confirm){
