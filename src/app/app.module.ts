@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 
 import {MatListModule} from '@angular/material/list';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SignupComponent } from './signup/signup.component';
 
 
 
@@ -15,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [
     AppComponent,
     LoginComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,

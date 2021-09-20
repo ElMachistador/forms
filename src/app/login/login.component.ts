@@ -14,20 +14,22 @@ interface Signin {
 })
 
 export class LoginComponent implements OnInit {
-form = new FormGroup({
-  email : new FormControl(null, Validators.required),
-  password : new FormControl(null, Validators.required)
-})
-logins?: Signin[] = []
+  form = new FormGroup({
+    email: new FormControl(null, Validators.required),
+    password: new FormControl(null, Validators.required)
+  })
+  logins?: Signin[] = []
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  login(){
-    this.logins?.push(this.form.value)
-    this.form.reset()
-    console.log(this.logins)
+  login() {
+    if (this.form.valid) {
+      this.logins?.push(this.form.value)
+      this.form.reset()
+      console.log(this.logins)
+    }
   }
 
 }
