@@ -3,11 +3,11 @@
 <main>
   <form [formGroup]="form" (ngSubmit)="signup()">
     <label for="email">Email address</label>
-    <input type="text" id="email" formControlName="email" required="required">
+    <input type="email" id="email" formControlName="email" required>
     <label for="password">Password</label>
-    <input type="password" id="password" formControlName="password" required="required">
+    <input type="password" id="password" formControlName="password" required>
     <label for="confirm">Confirm Password</label>
-    <input type="password" id="confirm" formControlName="confirm" required="required">
+    <input type="password" id="confirm" formControlName="confirm" required>
     <button type="submit">Login</button>
   </form>
 </main>
