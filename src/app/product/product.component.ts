@@ -1,6 +1,10 @@
 import { Component} from '@angular/core';
 
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+
+import {productNames} from '../product-names';
+
+
 
 interface Product {
   name: string;
@@ -17,12 +21,13 @@ interface Product {
   styleUrls: ['./product.component.scss']
 })
 export class ProductComponent{
+  readonly productNames = productNames
 form = new FormGroup({
-  name: new FormControl(),
-  description: new FormControl(),
-  price: new FormControl(),
-  types: new FormControl(),
-  stock: new FormControl()
+  name: new FormControl(null, Validators.required),
+  description: new FormControl(null, Validators.required),
+  price: new FormControl(null, Validators.required),
+  types: new FormControl([]),
+  stock: new FormControl(null, Validators.required)
 })
 products: Product[] = []
 
@@ -32,7 +37,7 @@ sell(){
     product.stock = Math.round(product.stock)
     this.products.push(product)
     this.form.reset()
-    console.log(this.products)
+    console.log(product)
   }
 }
 
