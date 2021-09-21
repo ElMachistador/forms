@@ -15,13 +15,10 @@ interface Order {
   styleUrls: ['./order.component.scss']
 })
 export class OrderComponent{
+items?: FormArray
 form = new FormGroup({
   created: new FormControl(),
-  items: new FormGroup({
-    name: new FormControl(),
-    price: new FormControl(),
-    amout: new FormControl()
-  }),
+  items: new FormArray([]),
   email: new FormControl(),
   tel: new FormControl()
 })
@@ -31,7 +28,21 @@ orders: Order[] = []
     if(this.form.valid){
       this.orders.push(this.form.value)
       this.form.reset()
+      console.log(this.orders)
     }
+  }
+
+  createItems(){
+    return new FormGroup({
+      name: new FormControl(),
+      price: new FormControl(),
+      amount: new FormControl()
+    })
+  }
+
+  addItems(){
+    this.items = this.form.get('items') as FormArray;
+    this.items.push(this.createItems())
   }
 
 }

@@ -9,9 +9,21 @@
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
 
-  <mat-form-field formGroupName="items"> 
+  <div formGroupName="control">
+    <mat-form-field>
+      <mat-label for="name">Name of product</mat-label>
+      <input matInput type="text" formControlName="name">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label for="price">Price</mat-label>
+      <input matInput type="number" formControlName="price" step="0.50" min="0">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label for="amount">Amount</mat-label>
+      <input matInput type="number" formControlName="amount">
+    </mat-form-field>
+  </div>
 
-  </mat-form-field>
 
   <mat-form-field>
     <mat-label for="email">Email</mat-label>

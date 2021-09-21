@@ -14,12 +14,14 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatIconModule } from '@angular/material/icon';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
 import { UserComponent } from './user/user.component';
 import { ProductComponent } from './product/product.component';
 import { OrderComponent } from './order/order.component';
+import { GiftcardComponent } from './giftcard/giftcard.component';
 
 
 
@@ -31,6 +33,7 @@ import { OrderComponent } from './order/order.component';
     UserComponent,
     ProductComponent,
     OrderComponent,
+    GiftcardComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,8 @@ import { OrderComponent } from './order/order.component';
     MatSelectModule,
     MatRadioModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
