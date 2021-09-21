@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+
+import { productNames } from '../product-names';
+
+
 
 interface Product {
   name: string;
@@ -8,17 +14,29 @@ interface Product {
   stock: number; // should be a positive integer
 }
 
-
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss']
 })
-export class ProductComponent implements OnInit {
+export class ProductComponent {
+  readonly productNames = productNames
+  form = new FormGroup({
+    name: new FormControl(null, Validators.required),
+    description: new FormControl(),
+    price: new FormControl(null, Validators.required),
+    types: new FormControl([]),
+    stock: new FormControl(null, Validators.required)
+  })
+  products: Product[] = []
 
-  constructor() { }
-
-  ngOnInit(): void {
+  sell() {
+    if (this.form.valid) {
+      const product = this.form.value
+      product.stock = Math.round(product.stock)
+      this.products.push(product)
+      this.form.reset()
+    }
   }
 
 }

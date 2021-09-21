@@ -1,1 +1,38 @@
-<p>product works!</p>
+<h3>Products</h3>
+
+
+<form [formGroup]="form" (ngSubmit)="sell()">
+  <mat-form-field>
+    <mat-label for="name">Name</mat-label>
+    <input formControlName="name" matInput type="text" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label for="description">Description</mat-label>
+    <textarea formControlName="description" matInput maxlength="300"></textarea>
+    <mat-hint>300 Characters max</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label for="price">Price</mat-label>
+    <input matInput formControlName="price" type="number" min="0" step="0.50" pattern="^\d*(\.\d{0,2})?$" required>
+    <mat-hint>Rounded to cent</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label for="type">Type</mat-label>
+    <mat-select formControlName="types" multiple>
+      <ng-container *ngFor="let name of productNames | keyvalue">
+        <mat-option [value]="name.key" >{{name.value}}</mat-option>
+      </ng-container>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label for="stock">Stock Available</mat-label>
+    <input formControlName="stock" matInput type="number" min="0" required>
+    <mat-hint>By unit of product</mat-hint>
+  </mat-form-field>
+
+  <button type="submit" mat-raised-button color="primary">Add product</button>
+</form>
