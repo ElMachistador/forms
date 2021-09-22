@@ -22,6 +22,7 @@ import { UserComponent } from './user/user.component';
 import { ProductComponent } from './product/product.component';
 import { OrderComponent } from './order/order.component';
 import { GiftcardComponent } from './giftcard/giftcard.component';
+import { ArrayComponent } from './array/array.component';
 
 
 
@@ -34,6 +35,7 @@ import { GiftcardComponent } from './giftcard/giftcard.component';
     ProductComponent,
     OrderComponent,
     GiftcardComponent,
+    ArrayComponent,
   ],
   imports: [
     BrowserModule,

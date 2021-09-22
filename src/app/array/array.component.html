@@ -1,0 +1,11 @@
+  <div *ngFor="let control of formArray.controls, let i = index">
+    <mat-form-field>
+      <mat-label for="input">Activities</mat-label>
+      <input matInput type="text" [formControl]="$any(control)">
+      <button matSuffix mat-icon-button (click)="remove(i)">
+        <mat-icon>remove</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+
+  <button mat-flat-button color="primary" (click)="addActivity()">Add Activity</button>
