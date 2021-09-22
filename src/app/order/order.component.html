@@ -9,14 +9,17 @@
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
 
-  <div *ngFor="let group of items.controls, let i = index">
+  <fieldset *ngFor="let group of items.controls, let i = index">
+    <legend>
+      <button matSuffix mat-icon-button type="button" (click)="remove(i)">
+        <mat-icon>delete</mat-icon>
+      </button>
+      <span>Item</span>
+    </legend>
     <ng-container [formGroup]="$any(group)">
       <mat-form-field>
         <mat-label for="name">Name</mat-label>
         <input matInput type="text" formControlName="name">
-        <button matSuffix mat-icon-button type="button" (click)="remove(i)">
-          <mat-icon>remove</mat-icon>
-        </button>
       </mat-form-field>
       <mat-form-field>
         <mat-label for="price">Price</mat-label>
@@ -27,7 +30,7 @@
         <input matInput type="number" formControlName="amount">
       </mat-form-field>
     </ng-container>
-  </div>
+  </fieldset>
 
 
   <mat-form-field>
