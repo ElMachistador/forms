@@ -1,7 +1,7 @@
 <h3>Orders</h3>
 
 
-<form [formGroup]="form" (ngSubmit)="order()">
+<form [formGroup]="formGroup">
   <mat-form-field>
     <mat-label for="created">Choose a date</mat-label>
     <input matInput formControlName="created" [matDatepicker]="picker">
@@ -9,19 +9,24 @@
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
 
-  <div formGroupName="control">
-    <mat-form-field>
-      <mat-label for="name">Name of product</mat-label>
-      <input matInput type="text" formControlName="name">
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label for="price">Price</mat-label>
-      <input matInput type="number" formControlName="price" step="0.50" min="0">
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label for="amount">Amount</mat-label>
-      <input matInput type="number" formControlName="amount">
-    </mat-form-field>
+  <div *ngFor="let group of items.controls, let i = index">
+    <ng-container [formGroup]="$any(group)">
+      <mat-form-field>
+        <mat-label for="name">Name</mat-label>
+        <input matInput type="text" formControlName="name">
+        <button matSuffix mat-icon-button type="button" (click)="remove(i)">
+          <mat-icon>remove</mat-icon>
+        </button>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label for="price">Price</mat-label>
+        <input matInput type="number" formControlName="price">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label for="amount">Amount</mat-label>
+        <input matInput type="number" formControlName="amount">
+      </mat-form-field>
+    </ng-container>
   </div>
 
 
@@ -36,5 +41,10 @@
     <mat-hint>Format required: 0612345678</mat-hint>
   </mat-form-field>
 
-  <button type="submit">Order</button>
 </form>
+
+<section>
+  <button mat-flat-button color="primary" (click)="add()">Add item</button>
+  <button mat-flat-button color="primary" (click)="submit()">test</button>
+  <button mat-flat-button color="primary">Order</button>
+</section>

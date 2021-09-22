@@ -25,6 +25,7 @@ import { OrderComponent } from './order/order.component';
 import { GiftcardComponent } from './giftcard/giftcard.component';
 import { ArrayComponent } from './array/array.component';
 import { TodoComponent } from './todo/todo.component';
+import { GridofdoomComponent } from './gridofdoom/gridofdoom.component';
 
 
 
@@ -39,6 +40,7 @@ import { TodoComponent } from './todo/todo.component';
     GiftcardComponent,
     ArrayComponent,
     TodoComponent,
+    GridofdoomComponent,
   ],
   imports: [
     BrowserModule,

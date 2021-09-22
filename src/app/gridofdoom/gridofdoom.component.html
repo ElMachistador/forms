@@ -1,0 +1,13 @@
+<h3>A L'AIIIIIIIIIIIIIIIIIIIIIDE</h3>
+
+
+<form>
+  <ng-container *ngFor="let line of formArray.controls">
+    <ng-container *ngFor="let column of $any(line).controls">
+      <mat-checkbox [formControl]="column"></mat-checkbox>
+    </ng-container>
+  </ng-container>
+</form>
+
+<button (click)="add()">add</button>
+<button (click)="submit()">test</button>

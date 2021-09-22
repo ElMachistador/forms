@@ -1,6 +1,6 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 
-import { FormGroup, FormControl, FormArray} from '@angular/forms';
+import { FormGroup, FormControl, FormArray } from '@angular/forms';
 
 interface Order {
   created: Date;
@@ -14,35 +14,32 @@ interface Order {
   templateUrl: './order.component.html',
   styleUrls: ['./order.component.scss']
 })
-export class OrderComponent{
-items?: FormArray
-form = new FormGroup({
-  created: new FormControl(),
-  items: new FormArray([]),
-  email: new FormControl(),
-  tel: new FormControl()
-})
-orders: Order[] = []
+export class OrderComponent {
+  formGroup = new FormGroup({
+    created: new FormControl(),
+    items: new FormArray([]),
+    email: new FormControl(),
+    tel: new FormControl()
+  })
 
-  order(){
-    if(this.form.valid){
-      this.orders.push(this.form.value)
-      this.form.reset()
-      console.log(this.orders)
-    }
+  get items() {
+    return this.formGroup.get("items") as FormArray
   }
 
-  createItems(){
-    return new FormGroup({
+  add() {
+    const control = new FormGroup({
       name: new FormControl(),
       price: new FormControl(),
       amount: new FormControl()
     })
+    this.items.push(control)
   }
 
-  addItems(){
-    this.items = this.form.get('items') as FormArray;
-    this.items.push(this.createItems())
+  submit() {
+    console.log(this.formGroup.value)
   }
 
+  remove(index: number){
+    this.items.removeAt(index)
+  }
 }
