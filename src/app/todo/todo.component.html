@@ -1,15 +1,18 @@
 <h3>To do list</h3>
 
+<form [formGroup]="$any(formArray)" (ngSubmit)="add()">
   <div *ngFor="let todo of formArray.controls, let i = index">
-    <div [formGroup]="$any(todo)">
-      <input formControlName="checked" type="checkbox">
+    <div [formGroupName]="i">
+      <mat-checkbox formControlName="checked" type="checkbox">
+      </mat-checkbox>
       <mat-form-field>
         <mat-label for="todo">Add to do</mat-label>
         <input formControlName="text" matInput type="text">
-        <button matSuffix mat-icon-button (click)="remove(i)">
+        <button matSuffix mat-icon-button type="button" (click)="remove(i)">
           <mat-icon>remove</mat-icon>
         </button>
       </mat-form-field>
     </div>
   </div>
-  <button mat-flat-button color="primary" (click)="add()">Add</button>
+</form>
+<button mat-flat-button color="primary" (click)="add()">Add</button>

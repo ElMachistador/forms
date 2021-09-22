@@ -15,10 +15,9 @@ export class TodoComponent {
       checked: new FormControl(false)
     })
     this.formArray.push(todo)
-    console.log(this.formArray.value)
   }
 
-  remove(index: number){
+  remove(index: number) {
     this.formArray.removeAt(index)
   }
 
