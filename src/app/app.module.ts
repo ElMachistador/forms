@@ -23,6 +23,7 @@ import { ProductComponent } from './product/product.component';
 import { OrderComponent } from './order/order.component';
 import { GiftcardComponent } from './giftcard/giftcard.component';
 import { ArrayComponent } from './array/array.component';
+import { TodoComponent } from './todo/todo.component';
 
 
 
@@ -36,6 +37,7 @@ import { ArrayComponent } from './array/array.component';
     OrderComponent,
     GiftcardComponent,
     ArrayComponent,
+    TodoComponent,
   ],
   imports: [
     BrowserModule,

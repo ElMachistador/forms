@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { OrderComponent } from './order/order.component';
 import { ProductComponent } from './product/product.component';
 import { SignupComponent } from './signup/signup.component';
+import { TodoComponent } from './todo/todo.component';
 import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path: "product", component: ProductComponent},
   {path: "order", component: OrderComponent},
   {path: "giftcard", component: GiftcardComponent},
-  {path: "array", component: ArrayComponent}
+  {path: "array", component: ArrayComponent},
+  {path: "todo", component: TodoComponent}
 ];
 
 @NgModule({
