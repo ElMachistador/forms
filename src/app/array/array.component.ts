@@ -14,6 +14,7 @@ formArray = new FormArray([
 index?: number
 
 
+
   addActivity(){
     const control = new FormControl()
     this.formArray.push(control)
