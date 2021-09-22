@@ -13,15 +13,17 @@
   </mat-form-field>
 
 
-  <div>
+
+  <div *ngFor="let control of activities.controls">
     <mat-form-field>
-      <mat-label for="activites">Add activites</mat-label>
-      <input [formControl]="form" matInput="text" name="activites">
-      <button matSuffix (click)="addActivity($event)">
-        <mat-icon>add</mat-icon>
-      </button>
+      <mat-label for="activities">Add activites</mat-label>
+      <input matInput [formControl]="$any(control)" type="text" name="activities">
     </mat-form-field>
   </div>
+  <button mat-button (click)="addActivity($event)">
+    <span>add activity</span>
+    <mat-icon>add</mat-icon>
+  </button>
 
   <button mat-raised-button color="primary" type="submit">Send Card !</button>
 </form>

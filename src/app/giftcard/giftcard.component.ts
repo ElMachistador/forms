@@ -13,25 +13,27 @@ interface GiftCard {
   styleUrls: ['./giftcard.component.scss']
 })
 export class GiftcardComponent {
-  form = new FormControl()
   formGroup = new FormGroup({
     email: new FormControl(),
     price: new FormControl(),
-    activities: new FormArray([])
+    activities: new FormArray([
+    ])
   })
   giftcard: GiftCard[] = []
 
+
+  get activities() {
+    return this.formGroup.get("activities") as FormArray
+  }
+
   addActivity(event: Event) {
-    if (this.form.valid) {
-      event.preventDefault()
-      const activity = this.form.value
-      this.formGroup.value.activities.push(activity)
-      this.form.reset()
-    }
+    event.preventDefault()
+    const control = new FormControl()
+    this.activities.push(control)
   }
 
   send() {
-    if(this.formGroup.valid){
+    if (this.formGroup.valid) {
       this.giftcard.push(this.formGroup.value)
       this.formGroup.reset()
     }
