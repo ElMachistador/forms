@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, FormArray } from '@angular/forms';
+import { map } from 'rxjs/operators';
+import { Observable, observable } from 'rxjs';
 
 @Component({
   selector: 'app-gridofdoom',
@@ -9,6 +11,13 @@ import { FormGroup, FormControl, FormArray } from '@angular/forms';
 export class GridofdoomComponent {
   formArray = new FormArray([
   ])
+  coucou$?: Observable<number>
+
+  ngOnInit() {
+    this.coucou$ = this.formArray.valueChanges.pipe(
+      map((value: boolean[][]) => value.flat().filter(checked => checked === true).length)
+    )
+  }
 
   add() {
     const control = new FormArray([
@@ -17,10 +26,10 @@ export class GridofdoomComponent {
       new FormControl(false)
     ])
     this.formArray.push(control)
+  }
+
+  submit() {
     console.log(this.formArray.value)
   }
-  
-  submit(){
-    console.log(this.formArray.value)
-  }
+
 }
