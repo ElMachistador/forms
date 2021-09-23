@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 
 import { FormGroup, FormControl, FormArray } from '@angular/forms';
 
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators'
+
 interface Order {
   created: Date;
   items: { name: string, price: number, amount: number }[];
@@ -21,6 +24,8 @@ export class OrderComponent {
     email: new FormControl(),
     tel: new FormControl()
   })
+  item$?: Observable<any>
+
 
   get items() {
     return this.formGroup.get("items") as FormArray
@@ -39,7 +44,7 @@ export class OrderComponent {
     console.log(this.formGroup.value)
   }
 
-  remove(index: number){
+  remove(index: number) {
     this.items.removeAt(index)
   }
 }

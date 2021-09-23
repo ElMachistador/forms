@@ -24,7 +24,7 @@ export class GiftcardComponent {
   })
   giftcard: GiftCard[] = []
 
-  activities$?: Observable<any>
+  activities$?: Observable<string>
 
   ngOnInit() {
     this.activities$ = this.formGroup.valueChanges.pipe(
