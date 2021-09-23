@@ -17,7 +17,7 @@ export class ArrayComponent {
 
   ngOnInit() {
     this.text$ = this.formArray.valueChanges.pipe(
-      map((value: string) => value)
+      map((value: string[]) => value.join("/"))
     )
   }
 
