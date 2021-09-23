@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, FormArray } from '@angular/forms';
 import { map } from 'rxjs/operators';
-import { Observable, observable } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-gridofdoom',
