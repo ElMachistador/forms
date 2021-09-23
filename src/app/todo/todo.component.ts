@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, FormArray } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-todo',
@@ -8,6 +10,13 @@ import { FormGroup, FormControl, FormArray } from '@angular/forms';
 })
 export class TodoComponent {
   formArray = new FormArray([])
+  done$?: Observable<any>
+
+  ngOnInit() {
+    this.done$ = this.formArray.valueChanges.pipe(
+      map((value: ))
+    )
+  }
 
   add() {
     const todo = new FormGroup({
