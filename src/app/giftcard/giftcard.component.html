@@ -1,0 +1,29 @@
+<h3>Giftcard</h3>
+
+
+<form [formGroup]="formGroup" (ngSubmit)="send()">
+  <mat-form-field>
+    <mat-label for="email">Destinator</mat-label>
+    <input formControlName="email" matInput type="text" name="email">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label for="price">Amount Gifted</mat-label>
+    <input formControlName="price" matInput type="number" name="price" min="1">
+  </mat-form-field>
+
+
+
+  <div *ngFor="let control of activities.controls">
+    <mat-form-field>
+      <mat-label for="activities">Add activites</mat-label>
+      <input matInput [formControl]="$any(control)" type="text" name="activities">
+    </mat-form-field>
+  </div>
+  <button mat-button (click)="addActivity($event)">
+    <span>add activity</span>
+    <mat-icon>add</mat-icon>
+  </button>
+
+  <button mat-raised-button color="primary" type="submit">Send Card !</button>
+</form>

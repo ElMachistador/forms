@@ -12,14 +12,20 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
 import { UserComponent } from './user/user.component';
 import { ProductComponent } from './product/product.component';
 import { OrderComponent } from './order/order.component';
+import { GiftcardComponent } from './giftcard/giftcard.component';
+import { ArrayComponent } from './array/array.component';
+import { TodoComponent } from './todo/todo.component';
+import { GridofdoomComponent } from './gridofdoom/gridofdoom.component';
 
 
 
@@ -31,6 +37,10 @@ import { OrderComponent } from './order/order.component';
     UserComponent,
     ProductComponent,
     OrderComponent,
+    GiftcardComponent,
+    ArrayComponent,
+    TodoComponent,
+    GridofdoomComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +54,9 @@ import { OrderComponent } from './order/order.component';
     MatSelectModule,
     MatRadioModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatIconModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
