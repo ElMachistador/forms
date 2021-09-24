@@ -18,7 +18,7 @@ export class CombinelatestComponent {
     this.formGroup.get("in1")!.valueChanges,
     this.formGroup.get("in2")!.valueChanges
   ]).pipe(
-    map(text => text.join("/"))
+    map(([in1, in2]) => `${in1} / ${in2}`)
   )
 
 }
