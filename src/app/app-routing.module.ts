@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { delay } from 'rxjs/operators';
 import { ArrayComponent } from './array/array.component';
+import { DelayComponent } from './delay/delay.component';
 import { GiftcardComponent } from './giftcard/giftcard.component';
 import { GridofdoomComponent } from './gridofdoom/gridofdoom.component';
 import { LoginComponent } from './login/login.component';
@@ -19,7 +21,8 @@ const routes: Routes = [
   {path: "giftcard", component: GiftcardComponent},
   {path: "array", component: ArrayComponent},
   {path: "todo", component: TodoComponent},
-  {path: "gridofdoom", component: GridofdoomComponent}
+  {path: "gridofdoom", component: GridofdoomComponent},
+  {path: "delay", component: DelayComponent}
 ];
 
 @NgModule({
