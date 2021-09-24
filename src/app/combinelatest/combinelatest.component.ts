@@ -13,9 +13,10 @@ export class CombinelatestComponent {
     in1: new FormControl(),
     in2: new FormControl()
   })
-  result$?= combineLatest(
+  result$?= combineLatest([
     this.formGroup.get("in1")!.valueChanges,
     this.formGroup.get("in2")!.valueChanges
+  ]
   )
 
 }
