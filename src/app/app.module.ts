@@ -28,6 +28,7 @@ import { TodoComponent } from './todo/todo.component';
 import { GridofdoomComponent } from './gridofdoom/gridofdoom.component';
 import { DelayComponent } from './delay/delay.component';
 import { MergeComponent } from './merge/merge.component';
+import { CombinelatestComponent } from './combinelatest/combinelatest.component';
 
 
 
@@ -45,6 +46,7 @@ import { MergeComponent } from './merge/merge.component';
     GridofdoomComponent,
     DelayComponent,
     MergeComponent,
+    CombinelatestComponent,
   ],
   imports: [
     BrowserModule,
