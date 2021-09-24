@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { combineLatest, Observable } from 'rxjs';
+import { map } from 'rxjs/operators'
 
 @Component({
   selector: 'app-combinelatest',
@@ -16,7 +17,8 @@ export class CombinelatestComponent {
   result$?= combineLatest([
     this.formGroup.get("in1")!.valueChanges,
     this.formGroup.get("in2")!.valueChanges
-  ]
+  ]).pipe(
+    map(text => text.join("/"))
   )
 
 }
