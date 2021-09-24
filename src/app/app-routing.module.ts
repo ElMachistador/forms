@@ -6,6 +6,7 @@ import { DelayComponent } from './delay/delay.component';
 import { GiftcardComponent } from './giftcard/giftcard.component';
 import { GridofdoomComponent } from './gridofdoom/gridofdoom.component';
 import { LoginComponent } from './login/login.component';
+import { MergeComponent } from './merge/merge.component';
 import { OrderComponent } from './order/order.component';
 import { ProductComponent } from './product/product.component';
 import { SignupComponent } from './signup/signup.component';
@@ -22,7 +23,8 @@ const routes: Routes = [
   {path: "array", component: ArrayComponent},
   {path: "todo", component: TodoComponent},
   {path: "gridofdoom", component: GridofdoomComponent},
-  {path: "delay", component: DelayComponent}
+  {path: "delay", component: DelayComponent},
+  {path: "merge", component: MergeComponent}
 ];
 
 @NgModule({
