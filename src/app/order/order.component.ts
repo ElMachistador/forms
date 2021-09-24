@@ -1,3 +1,5 @@
+import { KeyValuePipe } from '@angular/common';
+import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 import { Component } from '@angular/core';
 
 import { FormGroup, FormControl, FormArray } from '@angular/forms';
@@ -10,6 +12,12 @@ interface Order {
   items: { name: string, price: number, amount: number }[];
   email: string;
   tel: string;
+}
+
+interface Items {
+  name: string,
+  price: number,
+  amount: number
 }
 
 @Component({
@@ -25,6 +33,11 @@ export class OrderComponent {
     tel: new FormControl()
   })
   item$?: Observable<any>
+  amount$?: Observable<any>
+
+  ngOnInit(){
+    this.item$ = this.items.valueChanges  
+  }
 
 
   get items() {
