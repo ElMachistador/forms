@@ -26,6 +26,9 @@ import { GiftcardComponent } from './giftcard/giftcard.component';
 import { ArrayComponent } from './array/array.component';
 import { TodoComponent } from './todo/todo.component';
 import { GridofdoomComponent } from './gridofdoom/gridofdoom.component';
+import { DelayComponent } from './delay/delay.component';
+import { MergeComponent } from './merge/merge.component';
+import { CombinelatestComponent } from './combinelatest/combinelatest.component';
 
 
 
@@ -41,6 +44,9 @@ import { GridofdoomComponent } from './gridofdoom/gridofdoom.component';
     ArrayComponent,
     TodoComponent,
     GridofdoomComponent,
+    DelayComponent,
+    MergeComponent,
+    CombinelatestComponent,
   ],
   imports: [
     BrowserModule,

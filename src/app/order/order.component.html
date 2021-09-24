@@ -51,3 +51,16 @@
   <button mat-flat-button color="primary" (click)="submit()">test</button>
   <button mat-flat-button color="primary">Order</button>
 </section>
+
+
+<mat-list>
+  <ng-container *ngFor="let item of item$ | async">
+    <mat-list-item>
+      <h3 matLine>{{item.name}}</h3>
+      <p matLine>
+        <span>{{item.price | currency}}</span>
+        <span class="amount">x {{item.amount}}</span>
+      </p>
+    </mat-list-item>
+  </ng-container>
+</mat-list>

@@ -17,3 +17,7 @@
 </form>
 <button mat-flat-button color="primary" (click)="add()">Add</button>
 
+
+<mat-list *ngFor="let done of done$ | async">
+  <mat-list-item>{{done}}</mat-list-item>
+</mat-list>

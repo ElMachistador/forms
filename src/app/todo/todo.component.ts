@@ -3,6 +3,12 @@ import { FormGroup, FormControl, FormArray } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
+
+interface Todo {
+  text: string,
+  checked: boolean
+}
+
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.component.html',
@@ -14,7 +20,7 @@ export class TodoComponent {
 
   ngOnInit() {
     this.done$ = this.formArray.valueChanges.pipe(
-      map((value: ))
+      map((value: Todo[]) => value.filter(todo => todo.checked === true).map(todo => todo.text))
     )
   }
 

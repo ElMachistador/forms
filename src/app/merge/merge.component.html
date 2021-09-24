@@ -1,0 +1,15 @@
+<h3>Merge exercise</h3>
+
+<form [formGroup]="formGroup">
+  <mat-form-field>
+    <mat-label>Inp 1</mat-label>
+    <input formControlName="in1" matInput type="text">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Inp 2</mat-label>
+    <input formControlName="in2" matInput type="text">
+  </mat-form-field>
+</form>
+
+<span>{{ merge$ | async }}</span>

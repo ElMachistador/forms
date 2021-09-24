@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, FormArray } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
 
 interface GiftCard {
   email: string;  // To who the gift card is addressed
@@ -20,6 +23,12 @@ export class GiftcardComponent {
     ])
   })
   giftcard: GiftCard[] = []
+
+  activities$?: Observable<string>
+
+  ngOnInit() {
+    this.activities$ = this.activities.valueChanges
+  }
 
 
   get activities() {
