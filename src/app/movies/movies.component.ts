@@ -26,32 +26,27 @@ export class MoviesComponent implements OnInit {
     boxOffice: new FormControl(),
     release: new FormControl()
   })
-  movies?: Movie[] = []
   movies$?: Observable<any>
   constructor(
     private firestore: Firestore
   ) {
     const ref = collection(this.firestore, 'movies')
-    this.movies$ = collectionData(ref, {idField: "id"})
-   }
+    this.movies$ = collectionData(ref, { idField: "id" })
+  }
 
   ngOnInit(): void {
   }
 
-  submit() {
+  async submit() {
     if (this.formGroup.valid) {
-      this.movies?.push(this.formGroup.value)
-      this.addMovie()
+      const ref = collection(this.firestore, 'movies')
+      await addDoc(ref, this.formGroup.value)
+      this.formGroup.reset()
     }
   }
 
-   async addMovie(){
-    const ref = collection(this.firestore,'movies')
-     await addDoc(ref, this.formGroup.value)
-     this.formGroup.reset()
-  }
 
-  remove(id: string){
+  remove(id: string) {
     const ref = doc(this.firestore, 'movies', id)
     deleteDoc(ref)
   }
