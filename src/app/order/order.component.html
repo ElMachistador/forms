@@ -52,7 +52,7 @@
 </section>
 
 
-<mat-list>
+<!-- <mat-list>
   <ng-container *ngFor="let item of item$ | async">
     <mat-list-item>
       <h3 matLine>{{item.name}}</h3>
@@ -60,6 +60,17 @@
         <span>{{item.price | currency}}</span>
         <span class="amount">x {{item.amount}}</span>
       </p>
+    </mat-list-item>
+  </ng-container>
+</mat-list> -->
+
+<h3>List of Order</h3>
+
+<mat-list>
+  <ng-container *ngFor="let order of orders$ | async">
+    <h3 mat-subheader>{{order.email}}</h3>
+    <mat-list-item *ngFor="let item of order.items">
+      {{item.name}}
     </mat-list-item>
   </ng-container>
 </mat-list>

@@ -7,7 +7,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { Observable } from 'rxjs';
 
-import { collection, collectionData, addDoc, Firestore } from '@angular/fire/firestore'
+import { collection, collectionData, addDoc, Firestore, deleteDoc, doc } from '@angular/fire/firestore'
 
 
 interface User {
@@ -15,6 +15,7 @@ interface User {
   age: number;
   nationality: string; // (provide a list of countries)
   gender: 'male' | 'female' | 'transgenre' | 'none';
+  id: string
 }
 
 @Component({
@@ -38,14 +39,14 @@ export class UserComponent {
     private firestore: Firestore
   ) {
     const ref = collection(this.firestore, 'users');
-    this.user$ = collectionData(ref)
+    this.user$ = collectionData(ref,{idField: 'id'})
   }
 
   submit() {
     if (this.form.valid) {
       this.infos?.push(this.form.value)
       this.addUser(),
-      console.log(this.form.value)
+        console.log(this.form.value)
       this.form.reset()
     }
   }
@@ -53,6 +54,11 @@ export class UserComponent {
   addUser() {
     const ref = collection(this.firestore, 'users');
     addDoc(ref, this.form.value)
+  }
+
+  remove(id: string) {
+    const ref = doc(this.firestore, 'users', id )
+    deleteDoc(ref)
   }
 
 }

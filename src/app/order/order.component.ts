@@ -4,7 +4,7 @@ import { FormGroup, FormControl, FormArray } from '@angular/forms';
 
 import { Observable } from 'rxjs';
 
-import { collection, collectionData, addDoc, Firestore } from '@angular/fire/firestore'
+import { collection, collectionData, addDoc, Firestore, deleteDoc } from '@angular/fire/firestore'
 
 interface Order {
   created: Date;
@@ -61,13 +61,14 @@ export class OrderComponent {
   }
 
 
-  addOrder() {
+  async addOrder() {
     if (this.formGroup.valid) {
       const ref = collection(this.firestore, "orders")
-      addDoc(ref, this.formGroup.value)
+      await addDoc(ref, this.formGroup.value)
       this.formGroup.reset()
     }
   }
+
 
 
   remove(index: number) {
