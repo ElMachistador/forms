@@ -1,0 +1,13 @@
+<p>login-google works!</p>
+
+
+<ng-container *ngIf="(user$ | async) as user; else notConnected">
+
+  <p>Logged in as {{user.email}}</p>
+  <button (click)="signOut()">Sign Out</button>
+
+</ng-container>
+
+<ng-template #notConnected>
+  <button (click)="signInWithGoogle()">Sign In with Google</button>
+</ng-template>

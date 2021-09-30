@@ -29,6 +29,13 @@ import { GridofdoomComponent } from './gridofdoom/gridofdoom.component';
 import { DelayComponent } from './delay/delay.component';
 import { MergeComponent } from './merge/merge.component';
 import { CombinelatestComponent } from './combinelatest/combinelatest.component';
+import { LoginGoogleComponent } from './login-google/login-google.component';
+
+import { environment } from '../environments/environment';
+
+import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { getAuth, provideAuth } from '@angular/fire/auth';
 
 
 
@@ -47,6 +54,7 @@ import { CombinelatestComponent } from './combinelatest/combinelatest.component'
     DelayComponent,
     MergeComponent,
     CombinelatestComponent,
+    LoginGoogleComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,7 +70,10 @@ import { CombinelatestComponent } from './combinelatest/combinelatest.component'
     MatDatepickerModule,
     MatNativeDateModule,
     MatIconModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore()),
+    provideAuth(() => getAuth())
   ],
   providers: [],
   bootstrap: [AppComponent]
