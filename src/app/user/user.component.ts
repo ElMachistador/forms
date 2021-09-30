@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { countries } from '../countries';
 import { genders } from '../genders';
 
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 
 import { Observable } from 'rxjs';
 

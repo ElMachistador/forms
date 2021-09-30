@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, FormArray } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+
+import { collection, collectionData, addDoc, Firestore, deleteDoc, doc } from '@angular/fire/firestore'
 
 
 interface GiftCard {
-  email: string;  // To who the gift card is addressed
-  price: number;  // The price we offer
-  activities: string[]; // A list of activities the person can pretend to.  // This should be a list of inputs with free text
+  email: string,  // To who the gift card is addressed
+  price: number,  // The price we offer
+  activities: string[], // A list of activities the person can pretend to.  // This should be a list of inputs with free text
+  id: string,
 }
 
 @Component({
@@ -23,8 +25,15 @@ export class GiftcardComponent {
     ])
   })
   giftcard: GiftCard[] = []
-
   activities$?: Observable<string>
+  giftcard$?: Observable<any>
+  constructor(
+    private firestore: Firestore
+  ) {
+    const ref = collection(this.firestore, 'giftcards')
+    this.giftcard$ = collectionData(ref, {idField: "id"})
+  }
+
 
   ngOnInit() {
     this.activities$ = this.activities.valueChanges
@@ -44,8 +53,19 @@ export class GiftcardComponent {
   send() {
     if (this.formGroup.valid) {
       this.giftcard.push(this.formGroup.value)
-      this.formGroup.reset()
+      this.sendGiftCard()
     }
+  }
+
+  async sendGiftCard() {
+    const ref = collection(this.firestore, 'giftcards')
+    await addDoc(ref, this.formGroup.value)
+    this.formGroup.reset()
+  }
+
+  remove(id: string){
+    const ref = doc(this.firestore,'giftcards', id)
+    deleteDoc(ref)
   }
 
 }
