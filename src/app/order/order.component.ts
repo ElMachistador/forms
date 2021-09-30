@@ -37,13 +37,13 @@ export class OrderComponent {
 
   constructor(
     private firestore: Firestore,
-  ){
+  ) {
     const ref = collection(this.firestore, 'orders')
     this.orders$ = collectionData(ref)
   }
 
-  ngOnInit(){
-    this.item$ = this.items.valueChanges  
+  ngOnInit() {
+    this.item$ = this.items.valueChanges
   }
 
 
@@ -59,12 +59,13 @@ export class OrderComponent {
     })
     this.items.push(control)
   }
-  
 
-  addOrder(){
-    if (this.formGroup.valid){
+
+  addOrder() {
+    if (this.formGroup.valid) {
       const ref = collection(this.firestore, "orders")
       addDoc(ref, this.formGroup.value)
+      this.formGroup.reset()
     }
   }
 
