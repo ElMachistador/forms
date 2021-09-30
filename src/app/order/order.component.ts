@@ -1,11 +1,10 @@
-import { KeyValuePipe } from '@angular/common';
-import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 import { Component } from '@angular/core';
 
 import { FormGroup, FormControl, FormArray } from '@angular/forms';
 
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators'
+
+import { collection, collectionData, addDoc, Firestore } from '@angular/fire/firestore'
 
 interface Order {
   created: Date;
@@ -34,6 +33,14 @@ export class OrderComponent {
   })
   item$?: Observable<any>
   amount$?: Observable<any>
+  orders$?: Observable<any>
+
+  constructor(
+    private firestore: Firestore,
+  ){
+    const ref = collection(this.firestore, 'orders')
+    this.orders$ = collectionData(ref)
+  }
 
   ngOnInit(){
     this.item$ = this.items.valueChanges  
@@ -52,10 +59,15 @@ export class OrderComponent {
     })
     this.items.push(control)
   }
+  
 
-  submit() {
-    console.log(this.formGroup.value)
+  addOrder(){
+    if (this.formGroup.valid){
+      const ref = collection(this.firestore, "orders")
+      addDoc(ref, this.formGroup.value)
+    }
   }
+
 
   remove(index: number) {
     this.items.removeAt(index)
