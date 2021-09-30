@@ -8,6 +8,7 @@ import { GridofdoomComponent } from './gridofdoom/gridofdoom.component';
 import { LoginGoogleComponent } from './login-google/login-google.component';
 import { LoginComponent } from './login/login.component';
 import { MergeComponent } from './merge/merge.component';
+import { MoviesComponent } from './movies/movies.component';
 import { OrderComponent } from './order/order.component';
 import { ProductComponent } from './product/product.component';
 import { SignupComponent } from './signup/signup.component';
@@ -27,7 +28,8 @@ const routes: Routes = [
   { path: "delay", component: DelayComponent },
   { path: "merge", component: MergeComponent },
   { path: "latest", component: CombinelatestComponent },
-  { path: "google", component: LoginGoogleComponent }
+  { path: "google", component: LoginGoogleComponent },
+  { path: "movies", component: MoviesComponent }
 ];
 
 @NgModule({

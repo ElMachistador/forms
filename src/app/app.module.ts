@@ -36,6 +36,7 @@ import { environment } from '../environments/environment';
 import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { getAuth, provideAuth } from '@angular/fire/auth';
+import { MoviesComponent } from './movies/movies.component';
 
 
 
@@ -55,6 +56,7 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
     MergeComponent,
     CombinelatestComponent,
     LoginGoogleComponent,
+    MoviesComponent,
   ],
   imports: [
     BrowserModule,
