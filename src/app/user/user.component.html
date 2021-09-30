@@ -9,7 +9,7 @@
 
   <mat-form-field>
     <mat-label for="age">Age</mat-label>
-    <input matInput formArrayName="age" type="number" id="age" min="1" max="120">
+    <input matInput formControlName="age" type="number" id="age" min="1" max="120">
   </mat-form-field>
 
   <mat-form-field>
@@ -35,6 +35,10 @@
 
 <h3 class="users">Signed up users</h3>
 
-<ng-container *ngFor="let info of infos">
-  <p>{{info.name}}</p>
-</ng-container>
+
+<mat-list>
+  <mat-list-item *ngFor="let user of user$ | async">
+    <p matLine>{{user.name}}</p>
+    <button mat-flat-button color="warn" (click)="remove(user.id)">Delete</button>
+  </mat-list-item>
+</mat-list>

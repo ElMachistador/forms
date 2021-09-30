@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "my-dev-app-c00e6": {
+      "hosting": {
+        "forms": [
+          "my-dev-app-c00e6"
+        ]
+      }
+    }
+  }
+}
